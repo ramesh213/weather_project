@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 from decouple import config
 
+api_key = config('api_key')
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
