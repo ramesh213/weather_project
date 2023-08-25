@@ -1,6 +1,5 @@
 
-// const apiKey = api_key;
-const apiKey = API_KEY;
+const apiKey = "a2e6160a6f50608186f4eb5dd3065711";
 console.log(apiKey);
 const weatherData = document.getElementById("weather-details");
 
