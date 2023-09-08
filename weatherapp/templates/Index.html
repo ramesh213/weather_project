@@ -16,22 +16,30 @@
 <body>
     <div class="container">
         <h1>Weather Now</h1>
-        <form action="">
+        <form action="" method="POST">
             {% csrf_token %}
-            <input type="text" id="city" placeholder="Enter city">
+            <input type="text" name = "city" placeholder="Enter city">
             <input type="submit" value="Check Weather">
         </form>
+           
+
+            {% if description %}
         <div id="weather-details">
-            <div class="icon">
-            </div>
-            <div class="description">{{description}}</div>
-            <div class="temperature">{{temperature}}</div>
-            <div class="details">{{details}}
-            </div>
-        </div>            
+        <div class="icon">
+            <img src="https://openweathermap.org/img/w/{{ icon }}.png" alt="image">
         </div>
+        <div class="description">{{ description }}</div>
+        <div class="temperature">{{ temp }}°C</div>
+        <div class="details">
+        <div class="feels_like">Feels like: {{ feels_like }}°C</div>
+        <div class="humidity">Humidity: {{ humidity }}%</div>
+        <div class="wind"> Wind Speed: {{ wind }}m/s</div>
+        </div>
+        </div>
+        {% else %}
+        <h2>No weather data available for the specified city.</h2>
+        {% endif %}
+
     </div>
-    
-    <script src='{% static "weatherapp/js/script.js" %}'></script>
 </body>
 </html>
